@@ -1,5 +1,6 @@
 package com.upgrad.paymentservice;
 
+import com.upgrad.paymentservice.model.JwtTokenRequest;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,6 +22,11 @@ public class PaymentServiceApplication {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
+    }
+
+    @Bean
+    public JwtTokenRequest generateToken(){
+        return new JwtTokenRequest("normal-user@abc.com","Admin@123");
     }
 
 }
