@@ -1,6 +1,7 @@
 package com.upgrad.paymentservice.service;
 
 import com.upgrad.paymentservice.dao.PaymentDAO;
+import com.upgrad.paymentservice.dao.UserRepo;
 import com.upgrad.paymentservice.exception.AppException;
 import com.upgrad.paymentservice.feign.AppointmentServiceClient;
 import com.upgrad.paymentservice.model.entity.AppointmentEntity;
@@ -22,8 +23,9 @@ public class PaymentService {
     AppointmentServiceClient appointmentServiceClient;
 
     public PaymentEntity makePayment(Long appointmentId) {
+
         PaymentEntity paymentEntity = new PaymentEntity();
-        ResponseEntity<AppointmentEntity> appointmentEntityResponseEntity = appointmentServiceClient.getAppointment(appointmentId);
+       ResponseEntity<AppointmentEntity> appointmentEntityResponseEntity = appointmentServiceClient.getAppointment(appointmentId);
         paymentEntity.setPaymentId(UUID.randomUUID().toString());
         paymentEntity.setAppointmentId(appointmentId);
         paymentEntity.setCreateDate(LocalDate.now());
