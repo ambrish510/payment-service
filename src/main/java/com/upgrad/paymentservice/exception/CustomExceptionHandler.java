@@ -17,13 +17,13 @@ import java.util.stream.Collectors;
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     private String errorCode;
-    private String errorMessage ;
+    private String errorMessage;
 
     @ExceptionHandler({AppException.class})
     public final ResponseEntity<ErrorResponse> handleDoctorNotFoundException(AppException e) {
         String errorCode = "ERR_RESOURCE_NOT_FOUND";
         List<String> errorFields = null;
-        ErrorResponse errorResponse = new ErrorResponse(errorCode,e.getLocalizedMessage(),errorFields);
+        ErrorResponse errorResponse = new ErrorResponse(errorCode, e.getLocalizedMessage(), errorFields);
         System.out.println(errorResponse.toString());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }

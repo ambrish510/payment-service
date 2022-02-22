@@ -2,6 +2,7 @@ package com.upgrad.paymentservice.model.entity;
 
 import com.upgrad.paymentservice.model.PaymentStatus;
 import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

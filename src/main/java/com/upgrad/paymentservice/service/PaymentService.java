@@ -25,11 +25,11 @@ public class PaymentService {
     public PaymentEntity makePayment(Long appointmentId) {
 
         PaymentEntity paymentEntity = new PaymentEntity();
-       ResponseEntity<AppointmentEntity> appointmentEntityResponseEntity = appointmentServiceClient.getAppointment(appointmentId);
+        ResponseEntity<AppointmentEntity> appointmentEntityResponseEntity = appointmentServiceClient.getAppointment(appointmentId);
         paymentEntity.setPaymentId(UUID.randomUUID().toString());
         paymentEntity.setAppointmentId(appointmentId);
         paymentEntity.setCreateDate(LocalDate.now());
-        ResponseEntity<AppointmentEntity> appointment = appointmentServiceClient.updateAppointment(appointmentId,appointmentEntityResponseEntity);
+        ResponseEntity<AppointmentEntity> appointment = appointmentServiceClient.updateAppointment(appointmentId, appointmentEntityResponseEntity);
         return paymentDAO.save(paymentEntity);
     }
 }

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,11 +16,11 @@ public class TokenProvider {
 
     private static final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
-    private final String JWT_SECRET ="some_secret_code";
+    private final String JWT_SECRET = "some_secret_code";
 
     private final int JWT_EXPIRATION_TIME_IN_MS = 60000;
 
-    public String generateToken(UserPrincipal userPrincipal){
+    public String generateToken(UserPrincipal userPrincipal) {
 
         List<String> roles = userPrincipal
                 .getAuthorities()
@@ -57,7 +58,8 @@ public class TokenProvider {
 
 
     }
-    public String getUserNameFromToken(String token){
-        return  Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();
+
+    public String getUserNameFromToken(String token) {
+        return Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();
     }
 }

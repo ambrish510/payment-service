@@ -22,10 +22,10 @@ public class PaymentController {
     @PostMapping(value = "/payments")
     @ResponseBody
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<PaymentDTO> postPayment(@RequestParam Long appointmentId){
+    public ResponseEntity<PaymentDTO> postPayment(@RequestParam Long appointmentId) {
 
         PaymentEntity paymentEntity = paymentService.makePayment(appointmentId);
-        PaymentDTO paymentDTO = modelMapper.map(paymentEntity,PaymentDTO.class);
+        PaymentDTO paymentDTO = modelMapper.map(paymentEntity, PaymentDTO.class);
         return new ResponseEntity<>(paymentDTO, HttpStatus.CREATED);
     }
 }
