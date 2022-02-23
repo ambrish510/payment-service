@@ -14,5 +14,5 @@ public interface AppointmentServiceClient {
     public ResponseEntity<AppointmentEntity> updateAppointment(@PathVariable Long appointmentId, @RequestBody ResponseEntity<AppointmentDTO> appointmentDTO, @RequestHeader String authorization);
 
     @GetMapping(value = "/appointments/{appointmentId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AppointmentDTO> getAppointment(@PathVariable Long appointmentId,@RequestHeader String authorization);
+    public ResponseEntity<AppointmentDTO> getAppointment(@PathVariable Long appointmentId, @RequestHeader String authorization);
 }

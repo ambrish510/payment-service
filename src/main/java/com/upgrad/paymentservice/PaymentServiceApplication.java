@@ -25,8 +25,8 @@ public class PaymentServiceApplication {
     }
 
     @Bean
-    public JwtTokenRequest generateToken(){
-        return new JwtTokenRequest("normal-user@abc.com","Admin@123");
+    public JwtTokenRequest generateToken() {
+        return new JwtTokenRequest("normal-user@abc.com", "Admin@123");
     }
 
 }
